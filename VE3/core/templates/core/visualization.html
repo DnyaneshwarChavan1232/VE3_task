@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .plot {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px; /* Added margin between images */
+            border-radius: 8px; /* Added border radius to images */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added shadow to images */
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Visualizations</h1>
+        
+        {% if age_histogram %}
+        <div class="plot">
+            <img src="data:image/png;base64,{{ age_histogram }}" alt="Histogram of Age">
+            <p>Histogram of Age</p>
+        </div>
+        {% endif %}
+
+        {% if fare_histogram %}
+        <div class="plot">
+            <img src="data:image/png;base64,{{ fare_histogram }}" alt="Histogram of Fare">
+            <p>Histogram of Fare</p>
+        </div>
+        {% endif %}
+        
+        <a href="{% url 'upload_file' %}">Upload another file</a>
+        <a href="{% url 'home' %}">Back to home</a>
+    </div>
+</body>
+</html>
